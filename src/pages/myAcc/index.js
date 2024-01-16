@@ -79,10 +79,10 @@ export default function Home() {
           <div style={{ paddingTop: "200px" }}>
             <img
               style={{ width: "350px", borderRadius: "50%", height: "350px" }}
-              src="profile.jpeg"
+              src="p.png"
             />
           </div>
-          <div style={{ fontSize: "40px", color: "white", padding:"50px"}}>Lin Khua</div>
+          <div style={{ fontSize: "40px", color: "white", padding:"50px"}}>{data.userName}</div>
           <div
             style={{
               padding: "40px",
