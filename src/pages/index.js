@@ -13,7 +13,6 @@ export default function Home() {
       await axios
         .get("https://quiz-app-backend-cvvj.onrender.com/facts", {})
         .then((response) => {
-          console.log("34wred", response);
           const body = response.data;
           setAllFacts(body);
         })
@@ -130,7 +129,7 @@ export default function Home() {
                                   display: "flex",
                                   alignItems: "center",
                                 }}
-                              >
+                               >
                                 <div style={{ marginRight: "15px" }}>
                                   {" "}
                                   <img
