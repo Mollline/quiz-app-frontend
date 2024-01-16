@@ -143,6 +143,7 @@ export default function Home() {
                     id="userName"
                     value={userName}
                     onChange={handleUserName}
+                    autoComplete="off" 
                   />
                 </div>
                 <div style={{ color: "red" }}>{userNameError}</div>
@@ -156,6 +157,7 @@ export default function Home() {
                     id="age"
                     value={age}
                     onChange={handleAge}
+                    autoComplete="off" 
                   />
                 </div>
                 <div style={{ color: "red" }}>{ageError}</div>
@@ -171,6 +173,7 @@ export default function Home() {
                   name="search"
                   value={email}
                   onChange={handleEmail}
+                  autoComplete="off" 
                 />
               </div>
               <div style={{ color: "red" }}>{emailError}</div>
@@ -184,6 +187,7 @@ export default function Home() {
                   id="password"
                   value={password}
                   onChange={handlepassword}
+                  autoComplete="off" 
                 />
               </div>
               <div style={{ color: "red" }}>{passwordError}</div>
@@ -196,6 +200,7 @@ export default function Home() {
                   type="password"
                   placeholder="confirm password"
                   value={confirmPassword}
+                  autoComplete="off" 
                   onChange={(e) => setconfirmPassword(e.target.value)}
                 />
               </div>

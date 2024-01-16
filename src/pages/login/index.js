@@ -109,6 +109,7 @@ export default function Home() {
                   name="search"
                   value={email}
                   onChange={handleEmail}
+                  autoComplete="off" 
                 />
               </div>
               <div style={{ color: "red" }}>{emailError}</div>
@@ -122,6 +123,7 @@ export default function Home() {
                   id="password"
                   value={password}
                   onChange={handlePassword}
+                  autoComplete="off" 
                 />
               </div>
               <div style={{ color: "red" }}>{passwordError}</div>
