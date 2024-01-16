@@ -35,7 +35,7 @@ export default function Home() {
       <img
         style={{
           width: "100%",
-          height:"300000%",
+          height: "300000%",
           zIndex: "-1",
           position: "absolute",
           backgroundSize: "cover",
@@ -49,8 +49,8 @@ export default function Home() {
             display: "flex",
             justifyContent: "space-between",
             backgroundColor: "rgb(236,207,148)",
-            position:"fixed",
-            width:"100%",
+            position: "fixed",
+            width: "100%",
             padding: "10px",
             paddingLeft: "40px",
             paddingRight: "40px",
@@ -91,7 +91,7 @@ export default function Home() {
                     justifyItems: "center",
                     alignItems: "center",
                     flexDirection: "column",
-                    marginTop:"150px"
+                    marginTop: "150px",
                   }}
                 >
                   {allFacts.length > 0 &&
@@ -159,7 +159,9 @@ export default function Home() {
                             >
                               {data.title}
                             </div>
-                            <div style={{ color: "black", marginBottom: "15px" }}>
+                            <div
+                              style={{ color: "black", marginBottom: "15px" }}
+                            >
                               {data.text}
                             </div>
                             <div>

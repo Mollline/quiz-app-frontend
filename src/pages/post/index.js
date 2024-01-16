@@ -4,24 +4,25 @@ import React, { useState, useEffect } from "react";
 
 import { Create } from "@/Components/create";
 export default function Home() {
-  const userId = localStorage.getItem("_id");
   const router = useRouter();
-  const [userID, setUserID] = useState(`${userId}`);
   const [text, setText] = useState("");
   const [title, setTitle] = useState("");
-  const createFact = async (title, text, userID) => {
+  const createFact = async (title, text) => {
+    const userId = localStorage.getItem("_id");
+    console.log(title, text, userId);
     await axios
       .post("https://quiz-app-backend-cvvj.onrender.com/facts", {
         title,
         text,
-        userID,
+        userID: userId,
       })
-      .then((response) => {})
+      .then((response) => {
+        alert("Fact Created");
+        router.push("/");
+      })
       .catch((err) => {
         console.log(err);
       });
-      alert('Fact Created')
-    router.push("/");
   };
   return (
     <div style={{}}>
@@ -88,22 +89,13 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <div style={{ paddingTop: "10px", paddingLeft: "50px", display:"none"}}>
-                <div>userID</div>
-                <div>
-                  <input
-                    style={{
-                      width: "160px",
-                      height: "30px",
-                      padding: "10px",
-                      fontSize: "20px",
-                    }}
-                    type="title"
-                    onChange={(e) => setUserID(e.target.value)}
-                    value={userID}
-                  />
-                </div>
-              </div>
+              <div
+                style={{
+                  paddingTop: "10px",
+                  paddingLeft: "50px",
+                  display: "none",
+                }}
+              ></div>
             </div>
             <div style={{ padding: "10px 50px " }}>
               <div>Text</div>
@@ -113,7 +105,6 @@ export default function Home() {
                   type="text"
                   name="search"
                   value={text}
-                  //   onChange={(e) => e.target.value}
                   onChange={(e) => setText(e.target.value)}
                 />
               </div>
@@ -140,13 +131,12 @@ export default function Home() {
                     alignItems: "center",
                     marginTop: "-100px",
                   }}
-                  onClick={() => createFact(title, text, userID)}
+                  onClick={() => createFact(title, text)}
                 >
                   Create fact
                 </div>
               </div>
             </div>
-            <Create />
           </div>
         </div>
       </div>

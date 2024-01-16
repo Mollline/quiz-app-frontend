@@ -20,6 +20,7 @@ export default function Home() {
         .get(`https://quiz-app-backend-cvvj.onrender.com/facts/${ID}`, {})
         .then((response) => {
           const body = response.data;
+          console.log(body)
           setAllFacts(body);
         })
         .catch((err) => {

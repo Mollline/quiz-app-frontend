@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -20,27 +20,26 @@ const style = {
 // const userID = localStorage.getItem("_id");
 // console.log(userID)
 export const Create = (props) => {
-  const user = localStorage.getItem("_id");
   const router = useRouter();
-  const [userID, setUserID] = React.useState(`${user}`);
-  const [title, setTitle] = React.useState("");
-  const [text, setText] = React.useState("");
-  const [open, setOpen] = React.useState(false);
+  const [title, setTitle] = useState("");
+  const [text, setText] = useState("");
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const createFact = async (title, text) => {
+    const userId = localStorage.getItem("_id");
     await axios
       .post(`https://quiz-app-backend-cvvj.onrender.com/facts`, {
         title,
         text,
-        userID,
+        userId,
       })
       .then((response) => {})
       .catch((err) => {
         console.log(err);
       });
-      router.push("/");
-      alert("created successfully");
+    router.push("/");
+    alert("created successfully");
   };
 
   return (
@@ -71,16 +70,8 @@ export const Create = (props) => {
               value={text}
               onChange={(e) => setText(e.target.value)}
             ></input>
-            <input
-              style={{ height: "30px", display:'none'}}
-              type="text"
-              value={userID}
-              onChange={(e) => setUserID(e.target.value)}
-            ></input>
           </Typography>
-          <button onClick={() => createFact(title, text, userID)}>
-            create
-          </button>
+          <button onClick={() => createFact(title, text)}>create</button>
         </Box>
       </Modal>
     </div>
