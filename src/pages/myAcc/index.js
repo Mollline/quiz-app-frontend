@@ -4,6 +4,7 @@ import React, { useState, useEffect, use } from "react";
 import { Edit } from "@/Components/edit";
 import { Addlike } from "@/Components/Addlike";
 import { Delete } from "@/Components/Delete";
+import { Create } from "@/Components/create";
 
 export default function Home() {
   const router = useRouter();
@@ -20,7 +21,6 @@ export default function Home() {
         .get(`https://quiz-app-backend-cvvj.onrender.com/facts/${ID}`, {})
         .then((response) => {
           const body = response.data;
-          console.log(body)
           setAllFacts(body);
         })
         .catch((err) => {
@@ -30,24 +30,14 @@ export default function Home() {
     myfacts();
   }, []);
   return (
-    <div>
-      <img
-        style={{
-          width: "100%",
-          height:"30000%",
-          zIndex: "-1",
-          position: "absolute",
-          backgroundSize: "cover",
-          filter: "blur(5px)",
-        }}
-        src="ba.jpeg"
-      />{" "}
+    <div style={{ backgroundColor: "RGB(240, 242,245)" }}>
       <div>
         <div
           style={{
             display: "flex",
-            justifyContent: "space-between",
-            backgroundColor: "rgb(236,207,148)",
+            border: "grey 1px solid",
+            justifyContent: "space-around",
+            backgroundColor: "white",
             padding: "10px",
             paddingLeft: "40px",
             paddingRight: "40px",
@@ -56,16 +46,28 @@ export default function Home() {
           }}
         >
           <button
-            style={{ fontSize: "30px", padding: "0px", width: "20%" }}
+            style={{
+              fontSize: "30px",
+              border: "none",
+              backgroundColor: "white",
+              fontSize: "25px",
+              fontWeight: "bold",
+            }}
             onClick={() => router.push("/")}
           >
             all posts
           </button>
           <button
-            style={{ fontSize: "30px", padding: "0px", width: "20%" }}
-            onClick={() => router.push("post")}
+            style={{
+              fontSize: "30px",
+              border: "none",
+              backgroundColor: "white",
+              fontSize: "25px",
+              fontWeight: "bold",
+            }}
+            onClick={() => router.push("/login")}
           >
-            create post
+            log out
           </button>
         </div>
         <div
@@ -76,39 +78,42 @@ export default function Home() {
             flexDirection: "column",
           }}
         >
-          <div style={{ paddingTop: "200px" }}>
+          <div style={{ paddingTop: "100px" }}>
             <img
-              style={{ width: "350px", borderRadius: "50%", height: "350px" }}
+              style={{ width: "300px", borderRadius: "50%", height: "300px" }}
               src="p.png"
             />
           </div>
-          <div style={{ fontSize: "40px", color: "white", padding:"50px"}}>{data.userName}</div>
+          <div style={{ fontSize: "40px", color: "black", padding: "30px" }}>
+            {data.userName}
+          </div>
           <div
             style={{
               padding: "40px",
-              border: "white 2px solid",
+              backgroundColor: "white",
+              border: "1px grey solid",
               borderRadius: "30px",
               width: "40%",
             }}
           >
-            <div style={{ color: "white", fontSize: "20px" }}>
+            <div style={{ color: "black", fontSize: "20px" }}>
               Username : {data.userName}
             </div>
-            <div style={{ color: "white", fontSize: "20px" }}>
+            <div style={{ color: "black", fontSize: "20px" }}>
               Age : {data.age}
             </div>
-            <div style={{ color: "white", fontSize: "20px" }}>
+            <div style={{ color: "black", fontSize: "20px" }}>
               Id : {data.ID}
             </div>
           </div>
         </div>
         <div>
-          <div
-            style={{
-              padding: "10px 100px",
-            }}
-          >
-            <div>
+          <div>
+            <div
+              style={{
+                paddingTop: "10px",
+              }}
+            >
               <div>
                 <div
                   style={{
@@ -125,11 +130,10 @@ export default function Home() {
                         <div
                           style={{
                             padding: "10px",
-                            border: "2px solid #333",
+                            border: "1px solid grey",
+                            borderRadius: "5px",
                             width: "900px",
-                            borderRadius: "10px",
-                            marginBottom: "20px",
-                            backgroundColor: "rgb(236,207,148)",
+                            backgroundColor: "white",
                             boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",
                           }}
                         >
@@ -151,9 +155,9 @@ export default function Home() {
                                     borderRadius: "50%",
                                     width: "40px",
                                     height: "40px",
+                                    padding: "10px",
                                   }}
-                                  src="profile.jpeg"
-                                  alt="Profile"
+                                  src="p.png"
                                 />
                               </div>
                               <span style={{ fontSize: "16px", color: "#555" }}>
@@ -161,7 +165,7 @@ export default function Home() {
                               </span>
                             </div>
 
-                            <Delete factId={factId} />
+                            <Delete factId={factId} setAllFacts={setAllFacts} />
                           </div>
                           <div style={{ padding: "15px 20px" }}>
                             <div
@@ -180,12 +184,8 @@ export default function Home() {
                               {data.text}
                             </div>
                             <Addlike data={data} />
-                            <Edit
-                              data={data}
-                              allFacts={allFacts}
-                              setAllFacts={setAllFacts}
-                            />
-                            <div style={{ color: "black", fontSize: "14px" }}>
+                            <Edit data={data} setAllFacts={setAllFacts} />
+                            <div style={{ color: "grey", fontSize: "14px" }}>
                               {data.date}
                             </div>
                           </div>

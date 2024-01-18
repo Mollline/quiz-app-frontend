@@ -32,20 +32,19 @@ export const Create = (props) => {
       .post(`https://quiz-app-backend-cvvj.onrender.com/facts`, {
         title,
         text,
-        userId,
+        userID:userId,
       })
       .then((response) => {})
       .catch((err) => {
         console.log(err);
       });
-    router.push("/");
-    alert("created successfully");
+    router.push("/myAcc");
   };
 
   return (
     <div>
-      <Button style={{ color: "red" }} onClick={handleOpen}>
-        create Fact using different way
+      <Button style={{ color: "black",fontSize:"20px",fontWeight:"bold" }} onClick={handleOpen}>
+        Create post
       </Button>
       <Modal
         open={open}

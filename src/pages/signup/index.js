@@ -94,7 +94,6 @@ export default function Home() {
           zIndex: "-1",
           position: "absolute",
           backgroundSize: "cover",
-          filter: "blur(5px)",
         }}
         src="bac.jpeg"
       />
@@ -109,7 +108,6 @@ export default function Home() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          paddingTop: "200px",
         }}
       >
         <div

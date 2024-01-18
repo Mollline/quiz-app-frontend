@@ -18,25 +18,23 @@ const style = {
   p: 4,
 };
 
-export const Delete = ({ factId, }) => {
+export const Delete = ({ factId, onFactDeleted, setAllFacts }) => {
   const router = useRouter();
-  const [fact, setFact] = React.useState('')
-  const [open, setOpen] = React.useState(false); // Added state for modal visibility
+  const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const deleteFact = async () => {
-    await axios
-      .delete(`https://quiz-app-backend-cvvj.onrender.com/facts/${factId}`,{})
-      .then((response) => {
-      })
-      .catch((err) => {
-        console.log(err);
-        router.push('/')
-        alert("deleted successfully")
-      });
+    try {
+      await axios.delete(`https://quiz-app-backend-cvvj.onrender.com/facts/${factId}`, {});
+    } catch (err) {
+      handleClose();
+      router.push('/')
+      console.log(err);
+    }
   };
+
   return (
     <div>
       <Button style={{ color: "red" }} onClick={handleOpen}>

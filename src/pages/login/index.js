@@ -4,7 +4,7 @@ import axios from "axios";
 import UserContext from "@/context/context";
 
 export default function Home() {
-  const [userName, setUserName] = useState('');
+  const [userName, setUserName] = useState("");
   const router = useRouter();
   const [requireError, setRequireError] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -14,7 +14,7 @@ export default function Home() {
 
   const handlePassword = (e) => {
     if (password.length < 8) {
-      setPasswordError("More than 8 charachter");
+      setPasswordError("More than 8 characters");
     } else {
       setPasswordError("");
     }
@@ -24,7 +24,7 @@ export default function Home() {
     if (email.includes("@")) {
       setEmailError("");
     } else {
-      setEmailError("invalid email");
+      setEmailError("Invalid email");
     }
     setemail(e.target.value);
   };
@@ -36,17 +36,17 @@ export default function Home() {
         email,
       })
       .then((res) => {
-        const data = res.data
-        console.log(data)
-        setUserName(userName)
+        const data = res.data;
+        console.log(data);
+        setUserName(userName);
         localStorage.setItem("user", true);
-        localStorage.setItem('userName', data.userName)
-        localStorage.setItem('_id', data._id)
-        localStorage.setItem('age', data.age)
+        localStorage.setItem("userName", data.userName);
+        localStorage.setItem("_id", data._id);
+        localStorage.setItem("age", data.age);
         router.push("/");
       })
       .catch((err) => {
-        setRequireError(err.response.data); 
+        setRequireError(err.response.data);
       });
   };
   const changeRoute = () => {
@@ -54,129 +54,110 @@ export default function Home() {
   };
 
   return (
-    <div style={{}}>
-      <img
-        style={{
-          width: "100%",
-          height: "100%",
-          zIndex: "-1",
-          position: "absolute",
-          backgroundSize: "cover",
-          filter: "blur(5px)",
-        }}
-        src="bac.jpeg"
-      />
-      {/* <div
-        style={{ fontSize: "50px", padding: "50px" }}
-        onClick={() => router.push("/")}
-      >
-        back
-      </div> */}
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+        backgroundImage: "url('bac.jpeg')",
+        backgroundSize: "cover",
+      }}
+    >
       <div
         style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          paddingTop: "280px",
+          width: "300px",
+          backgroundColor: "white",
+          borderRadius: "10px",
         }}
       >
         <div
           style={{
-            width: "300px",
-            backgroundColor: "white",
-            borderRadius: "10px",
+            display: "flex",
+            justifyContent: "center",
+            fontSize: "25px",
+            fontWeight: "bold",
+            padding: "30px",
           }}
         >
+          Log in
+        </div>
+        <div style={{ padding: "10px 40px " }}>
           <div>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                fontSize: "25px",
-                fontWeight: "bold",
-                padding: "30px",
-              }}
-            >
-              Log in
-            </div>
-            <div style={{ padding: "10px 40px " }}>
-              <div>
-                <input
-                  style={{ width: "220px", height: "30px", padding: "10px" }}
-                  type="text"
-                  placeholder="Email or phone number"
-                  id="email"
-                  name="search"
-                  value={email}
-                  onChange={handleEmail}
-                  autoComplete="off" 
-                />
+            <input
+              style={{ width: "220px", height: "30px", padding: "10px" }}
+              type="text"
+              placeholder="Email or phone number"
+              id="email"
+              name="search"
+              value={email}
+              onChange={handleEmail}
+              autoComplete="off"
+            />
+          </div>
+          <div style={{ color: "red" }}>{emailError}</div>
+        </div>
+        <div style={{ padding: "10px 40px " }}>
+          <div>
+            <input
+              style={{ width: "220px", height: "30px", padding: "10px" }}
+              type="password"
+              placeholder="Password"
+              id="password"
+              value={password}
+              onChange={handlePassword}
+              autoComplete="off"
+            />
+          </div>
+          <div style={{ color: "red" }}>{passwordError}</div>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div onClick={() => router.push("")}>
+            <div style={{ paddingTop: "-700px" }}>
+              <div
+                style={{
+                  width: "220px",
+                  height: "35px",
+                  padding: "10px",
+                  backgroundColor: "RGB(57,117,234)",
+                  borderRadius: "5px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+                onClick={() => (changeRoute(), loginUser(email, password))}
+              >
+                Login
               </div>
-              <div style={{ color: "red" }}>{emailError}</div>
             </div>
-            <div style={{ padding: "10px 40px " }}>
-              <div>
-                <input
-                  style={{ width: "220px", height: "30px", padding: "10px" }}
-                  type="password"
-                  placeholder="Password"
-                  id="password"
-                  value={password}
-                  onChange={handlePassword}
-                  autoComplete="off" 
-                />
-              </div>
-              <div style={{ color: "red" }}>{passwordError}</div>
-            </div>
+            <div style={{ color: "red" }}>{requireError}</div>
             <div
               style={{
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+                padding: "30px ",
               }}
             >
-              <div onClick={() => router.push("")}>
-                <div style={{ paddingTop: "-700px" }}>
-                  <div
-                    style={{
-                      width: "220px",
-                      height: "35px",
-                      padding: "10px",
-                      backgroundColor: "RGB(57,117,234)",
-                      borderRadius: "5px",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                    onClick={() => (changeRoute(), loginUser(email, password))}
-                  >
-                    Login
-                  </div>
-                </div>
-                <div style={{ color: "red" }}>{requireError}</div>
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    padding: "30px ",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "150px",
-                      height: "45px",
-                      backgroundColor: "RGB(101, 181,67)",
-                      borderRadius: "5px",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                    onClick={() => router.push("signup")}
-                  >
-                    Create new account
-                  </div>
-                </div>
+              <div
+                style={{
+                  width: "150px",
+                  height: "45px",
+                  backgroundColor: "RGB(101, 181,67)",
+                  borderRadius: "5px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+                onClick={() => router.push("signup")}
+              >
+                Create new account
               </div>
             </div>
           </div>

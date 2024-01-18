@@ -41,13 +41,13 @@ export const Addlike = (props) => {
   };
 
   return (
-    <>
+    <div style={{display:'flex'}}>
       <div style={{ color: "black", padding: "10px" }}>
         <button onClick={like}>like</button> {likes.length}
       </div>
       <div style={{ color: "black", padding: "10px" }}>
         <button onClick={dislike}>dislike</button> {disLike.length}
       </div>
-    </>
+    </div>
   );
 };

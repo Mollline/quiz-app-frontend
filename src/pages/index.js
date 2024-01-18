@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useState, useEffect, useContext } from "react";
 import { Addlike } from "../Components/Addlike";
 import UserContext from "../context/context";
+import { Create } from "../Components/create";
 export default function Home() {
   const router = useRouter();
   const [deleteFact, setDeleteFact] = useState(true);
@@ -30,24 +31,14 @@ export default function Home() {
     getFacts();
   }, []);
   return (
-    <div>
-      <img
-        style={{
-          width: "100%",
-          height: "300000%",
-          zIndex: "-1",
-          position: "absolute",
-          backgroundSize: "cover",
-          filter: "blur(5px)",
-        }}
-        src="ba.jpeg"
-      />{" "}
+    <div style={{ backgroundColor: "RGB(240, 242,245)", height: "100%" }}>
       <div>
         <div
           style={{
             display: "flex",
-            justifyContent: "space-between",
-            backgroundColor: "rgb(236,207,148)",
+            justifyContent: "space-around",
+            backgroundColor: "white",
+            border: "1px grey solid",
             position: "fixed",
             width: "100%",
             padding: "10px",
@@ -56,20 +47,32 @@ export default function Home() {
           }}
         >
           <button
-            style={{ fontSize: "30px", padding: "0px", width: "20%" }}
+            style={{
+              fontSize: "30px",
+              padding: "0px",
+              width: "20%",
+              border: "none",
+              backgroundColor: "white",
+              fontSize: "25px",
+              fontWeight: "bold",
+            }}
             onClick={() => router.push("myAcc")}
           >
             {" "}
             my account
           </button>
+          <Create />
+
           <button
-            style={{ fontSize: "30px", padding: "0px", width: "20%" }}
-            onClick={() => router.push("post")}
-          >
-            create post
-          </button>
-          <button
-            style={{ fontSize: "30px", padding: "0px", width: "20%" }}
+            style={{
+              fontSize: "30px",
+              padding: "0px",
+              width: "20%",
+              border: "none",
+              backgroundColor: "white",
+              fontSize: "25px",
+              fontWeight: "bold",
+            }}
             onClick={() => setDeleteFact(!deleteFact)}
           >
             {deleteFact ? "Hide " : "Show "}
@@ -90,7 +93,7 @@ export default function Home() {
                     justifyItems: "center",
                     alignItems: "center",
                     flexDirection: "column",
-                    marginTop: "150px",
+                    marginTop: "65px",
                   }}
                 >
                   {allFacts.length > 0 &&
@@ -102,15 +105,16 @@ export default function Home() {
                             alignItems: "center",
                             display: "flex",
                             justifyContent: "center",
+                            paddingTop: "10px",
                           }}
                         >
                           <div
                             style={{
                               width: "900px",
                               padding: "20px",
-                              border: "5px solid black",
-                              borderRadius: "15px",
-                              backgroundColor: "rgb(236,207,148)",
+                              borderRadius: "5px",
+                              border: "1px solid grey",
+                              backgroundColor: "White",
                               boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",
                               display: deleteFact ? "" : "none",
                             }}
@@ -129,17 +133,17 @@ export default function Home() {
                                   display: "flex",
                                   alignItems: "center",
                                 }}
-                               >
+                              >
                                 <div style={{ marginRight: "15px" }}>
                                   {" "}
                                   <img
                                     style={{
                                       borderRadius: "50%",
+                                      padding:'10px',
                                       width: "40px",
                                       height: "40px",
                                     }}
-                                    src="profile.jpeg"
-                                    alt="Profile"
+                                    src="p.png"
                                   />
                                 </div>
                                 <span
@@ -176,7 +180,7 @@ export default function Home() {
                               )}
                             </div>
                             <Addlike data={data} />
-                            <div style={{ color: "black", fontSize: "12px" }}>
+                            <div style={{ color: "grey", fontSize: "12px" }}>
                               {data.date}
                             </div>
                           </div>
