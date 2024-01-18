@@ -26,7 +26,6 @@ export default function Home() {
     }
     setAge(newAge);
   };
-
   const handleUserName = (e) => {
     if (userName.length < 4) {
       setUserNameError("More than 4 character");
@@ -127,6 +126,7 @@ export default function Home() {
                 fontWeight: "bold",
                 paddingTop: "30px",
                 paddingBottom: "10px",
+                color:'black'
               }}
             >
               Sign up
@@ -141,7 +141,7 @@ export default function Home() {
                     id="userName"
                     value={userName}
                     onChange={handleUserName}
-                    autoComplete="off" 
+                    autoComplete="off"
                   />
                 </div>
                 <div style={{ color: "red" }}>{userNameError}</div>
@@ -155,7 +155,7 @@ export default function Home() {
                     id="age"
                     value={age}
                     onChange={handleAge}
-                    autoComplete="off" 
+                    autoComplete="off"
                   />
                 </div>
                 <div style={{ color: "red" }}>{ageError}</div>
@@ -171,7 +171,7 @@ export default function Home() {
                   name="search"
                   value={email}
                   onChange={handleEmail}
-                  autoComplete="off" 
+                  autoComplete="off"
                 />
               </div>
               <div style={{ color: "red" }}>{emailError}</div>
@@ -185,7 +185,7 @@ export default function Home() {
                   id="password"
                   value={password}
                   onChange={handlepassword}
-                  autoComplete="off" 
+                  autoComplete="off"
                 />
               </div>
               <div style={{ color: "red" }}>{passwordError}</div>
@@ -198,7 +198,7 @@ export default function Home() {
                   type="password"
                   placeholder="confirm password"
                   value={confirmPassword}
-                  autoComplete="off" 
+                  autoComplete="off"
                   onChange={(e) => setconfirmPassword(e.target.value)}
                 />
               </div>

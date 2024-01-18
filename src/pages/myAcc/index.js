@@ -52,6 +52,7 @@ export default function Home() {
               backgroundColor: "white",
               fontSize: "25px",
               fontWeight: "bold",
+              color:'black'
             }}
             onClick={() => router.push("/")}
           >
@@ -64,6 +65,7 @@ export default function Home() {
               backgroundColor: "white",
               fontSize: "25px",
               fontWeight: "bold",
+              color:'black'
             }}
             onClick={() => router.push("/login")}
           >
@@ -132,7 +134,7 @@ export default function Home() {
                             padding: "10px",
                             border: "1px solid grey",
                             borderRadius: "5px",
-                            width: "900px",
+                            width: "60vw",
                             backgroundColor: "white",
                             boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",
                           }}

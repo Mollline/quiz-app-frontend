@@ -55,6 +55,7 @@ export default function Home() {
               backgroundColor: "white",
               fontSize: "25px",
               fontWeight: "bold",
+              color:'black'
             }}
             onClick={() => router.push("myAcc")}
           >
@@ -72,6 +73,7 @@ export default function Home() {
               backgroundColor: "white",
               fontSize: "25px",
               fontWeight: "bold",
+              color:'black'
             }}
             onClick={() => setDeleteFact(!deleteFact)}
           >
@@ -110,7 +112,7 @@ export default function Home() {
                         >
                           <div
                             style={{
-                              width: "900px",
+                              width: "60vw",
                               padding: "20px",
                               borderRadius: "5px",
                               border: "1px solid grey",

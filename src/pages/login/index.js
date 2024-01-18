@@ -78,6 +78,7 @@ export default function Home() {
             fontSize: "25px",
             fontWeight: "bold",
             padding: "30px",
+            color:'black'
           }}
         >
           Log in
@@ -144,7 +145,7 @@ export default function Home() {
                 alignItems: "center",
                 padding: "30px ",
               }}
-            >
+             >
               <div
                 style={{
                   width: "150px",
@@ -155,7 +156,7 @@ export default function Home() {
                   justifyContent: "center",
                   alignItems: "center",
                 }}
-                onClick={() => router.push("signup")}
+                onClick={() => router.push("/signup")}
               >
                 Create new account
               </div>
