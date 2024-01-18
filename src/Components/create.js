@@ -43,7 +43,7 @@ export const Create = (props) => {
 
   return (
     <div>
-      <Button style={{ color: "black",fontSize:"20px",fontWeight:"bold" }} onClick={handleOpen}>
+      <Button style={{ color: "black",fontSize:"1.5vw",fontWeight:"bold" }} onClick={handleOpen}>
         Create post
       </Button>
       <Modal

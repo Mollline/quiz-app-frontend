@@ -53,7 +53,7 @@ export default function Home() {
               width: "20%",
               border: "none",
               backgroundColor: "white",
-              fontSize: "25px",
+              fontSize: "2vw",
               fontWeight: "bold",
               color:'black'
             }}
@@ -71,7 +71,7 @@ export default function Home() {
               width: "20%",
               border: "none",
               backgroundColor: "white",
-              fontSize: "25px",
+              fontSize: "2vw",
               fontWeight: "bold",
               color:'black'
             }}
@@ -95,7 +95,7 @@ export default function Home() {
                     justifyItems: "center",
                     alignItems: "center",
                     flexDirection: "column",
-                    marginTop: "65px",
+                    marginTop: "80px",
                   }}
                 >
                   {allFacts.length > 0 &&

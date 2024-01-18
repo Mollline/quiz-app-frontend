@@ -50,7 +50,7 @@ export default function Home() {
               fontSize: "30px",
               border: "none",
               backgroundColor: "white",
-              fontSize: "25px",
+              fontSize: "2vw",
               fontWeight: "bold",
               color:'black'
             }}
@@ -63,7 +63,7 @@ export default function Home() {
               fontSize: "30px",
               border: "none",
               backgroundColor: "white",
-              fontSize: "25px",
+              fontSize: "2vw",
               fontWeight: "bold",
               color:'black'
             }}
@@ -98,13 +98,13 @@ export default function Home() {
               width: "40%",
             }}
           >
-            <div style={{ color: "black", fontSize: "20px" }}>
+            <div style={{ color: "black", fontSize: "1.2vw" }}>
               Username : {data.userName}
             </div>
-            <div style={{ color: "black", fontSize: "20px" }}>
+            <div style={{ color: "black",fontSize: "1.2vw" }}>
               Age : {data.age}
             </div>
-            <div style={{ color: "black", fontSize: "20px" }}>
+            <div style={{ color: "black",fontSize: "1.2vw"}}>
               Id : {data.ID}
             </div>
           </div>
